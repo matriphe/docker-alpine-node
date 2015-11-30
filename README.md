@@ -35,12 +35,29 @@ docker -t repository/imagename:tag Dockerfile
 docker run matriphe/alpine-nodejs:latest
 ```
 
-By default, it will show the Node version. You can pass the Node or NPM command to this container. Here's the example.
+By default, it will run the `node` command. You can pass the Node or NPM command to this container. Here's the example.
 
 ```Shell
-docker run matriphe/alpine-nodejs:latest docker --help
+docker run matriphe/alpine-nodejs:latest docker node --version
 ```
 
 ```Shell
 docker run matriphe/alpine-nodejs:latest npm --version
 ```
+
+### Create an alias
+
+Add to your `~/.bashrc` this line, so you can just type `node` or `npm` command from command line. Make sure the docker engine is running.
+
+```Shell
+alias node='docker run --rm --name=node -v $(pwd):/www matriphe/alpine-nodejs:latest node'
+alias npm='docker run --rm --name=npm -v $(pwd):/www matriphe/alpine-nodejs:latest npm'
+```
+
+And then execute this command to make alias working.
+
+```Shell
+source ~/.bashrc
+```
+
+Now you can just simply type `composer` from command line.

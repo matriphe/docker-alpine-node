@@ -20,7 +20,14 @@ RUN	apk update && \
 	npm install -g npm@"${NPM_VERSION}" && \
 	npm cache clean -f && \
 	apk del tzdata && \
+	mkdir /www && \
 	rm -rf /var/cache/apk/*
 
+# Set Workdir
+WORKDIR /www
+
+# Expose volumes
+VOLUME ["/www"]
+
 # Entry point
-CMD ["node", "--version"]
+CMD ["node"]
