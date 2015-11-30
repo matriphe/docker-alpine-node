@@ -15,7 +15,7 @@ Here are the supported tags and respective Dockerfile links.
 This image is published in the Docker Hub. Simply run this command below to get it to your machine.
 
 ```Shell
-docker pull matriphe/alpine-nodejs:latest
+docker pull  matriphe/alpine-node:latest
 ```
 
 Alternatively you can clone this repository and build the image using the `docker build` command.
@@ -32,17 +32,17 @@ docker -t repository/imagename:tag Dockerfile
 ### Create and Run The Container
 
 ```Shell
-docker run matriphe/alpine-nodejs:latest
+docker run  matriphe/alpine-node:latest
 ```
 
 By default, it will run the `node` command. You can pass the Node or NPM command to this container. Here's the example.
 
 ```Shell
-docker run matriphe/alpine-nodejs:latest docker node --version
+docker run  matriphe/alpine-node:latest docker node --version
 ```
 
 ```Shell
-docker run matriphe/alpine-nodejs:latest npm --version
+docker run  matriphe/alpine-node:latest npm --version
 ```
 
 ### Create an alias
@@ -50,8 +50,8 @@ docker run matriphe/alpine-nodejs:latest npm --version
 Add to your `~/.bashrc` this line, so you can just type `node` or `npm` command from command line. Make sure the docker engine is running.
 
 ```Shell
-alias node='docker run --rm --name=node -v $(pwd):/www matriphe/alpine-nodejs:latest node'
-alias npm='docker run --rm --name=npm -v $(pwd):/www matriphe/alpine-nodejs:latest npm'
+alias node='docker run --rm --name=node -v $(pwd):/www  matriphe/alpine-node:latest node'
+alias npm='docker run --rm --name=npm -v $(pwd):/www  matriphe/alpine-node:latest npm'
 ```
 
 And then execute this command to make alias working.
